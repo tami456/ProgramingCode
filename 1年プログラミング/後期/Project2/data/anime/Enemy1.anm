@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animation version="1.0">
+  <image source="enemy1.png" tilewidth="20" tileheight="32"
+         tilecount="5" columns="4" offsetX="0" offsetY="-20" footPosX ="10" footPosY ="20"/>
+  <SequenceList>
+    <Sequence name="Idle" loop="-1">
+      <data encoding="csv">
+        0,50,
+        5,50
+      </data>
+    </Sequence>
+    <Sequence name="Run" loop="-1">
+      <data encoding="csv">
+        10,10,
+        15,10
+      </data>
+    </Sequence>
+    <Sequence name="Dead" loop="1">
+      <data encoding="csv">
+        4,8,
+        9,8,
+        14,8,
+        19,8
+      </data>
+    </Sequence>
+  </SequenceList>
+
+</Animation>

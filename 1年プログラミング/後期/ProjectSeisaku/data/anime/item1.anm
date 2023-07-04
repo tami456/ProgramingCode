@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animation version="1.0">
+  <Image source="item1.png" width="32" height="32" tileCount="1" columns="1"/>
+  <SequenceList>
+    <Sequence name="Run" loop="-1">
+      <data encoding="csv">
+        0,10,
+      </data>
+    </Sequence>
+  </SequenceList>
+</Animation>
