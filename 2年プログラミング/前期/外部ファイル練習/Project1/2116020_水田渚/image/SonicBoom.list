@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actionList name = "SonicBoom" version="1.0">
+	<action name="Idle" source="./image/SonicBoomE.png" divSizeX="60" divSizeY="60" divCntX = "10" divCntY="1">
+		<anime loop="1" encoding = "csv">
+			0,10,0,0,32,32,
+			1,10,0,0,32,32,
+			2,10,0,0,32,32,
+			3,10,0,0,32,32,
+			4,10,0,0,32,32,
+			5,10,0,0,32,32,
+			6,10,0,0,32,32,
+			7,10,0,0,32,32,
+			8,10,0,0,32,32,
+			9,10,0,0,32,32
+		</anime>
+	</action>
+</actionList>

@@ -1,0 +1,16 @@
+<?xml version ="1.0" encoding ="utf-8"?>
+<moduleList name ="Hadouken" version="1.0">
+	<ActNode name="MoveVecLeft">
+		<module name="CheckDir" dir="LEFT">
+			<module name="Move" x ="-2"/>
+		</module>
+	</ActNode>
+	<ActNode name="MoveVecRight">
+		<module name ="CheckDir" dir="RIGHT">
+			<module name="Move" x ="2"/>
+		</module>
+	</ActNode>
+</moduleList>
+	
+
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moduleName name ="CommandList" version ="1.0" csvLength="2">
+	<Actor name="Player">
+		<Command name="Hadouken">
+			<Left>
+				4,0,
+				12,300,
+				8,300,
+				72,300
+			</Left>
+			<Right>
+				4,0,
+				20,300,
+				16,300,
+				80,300
+			</Right>
+		</Command>
+		<Command name="SonicBoom">
+			<Left>
+				16,0,
+				0,3000,
+				8,300,
+				72,300
+			</Left>
+			<Right>
+				8,0,
+				0,3000,
+				16,300,
+				80,300
+			</Right>
+		</Command>
+	</Actor>
+</moduleName>

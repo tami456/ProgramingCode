@@ -1,0 +1,87 @@
+<?xml version ="1.0" encoding ="utf-8"?>
+<moduleList name ="Player" version="1.0">
+	<ActNode name="MoveVecLeft">
+		<module name="CheckKey" state="Cnt" key="LEFT">
+			<module name="SetDir" dir="LEFT"/>
+			<module name="CheckCol" w ="-24" speedX ="-2">
+				<module name="CheckCol" w ="-24" h ="-52" speedX ="-2">
+					<module name="Move" x ="-2"/>
+				</module>
+			</module>
+			<module name="CheckState" state="Idle">
+				<module name="SetAnime" state="Run"/>
+			</module>
+		</module>
+	</ActNode>
+	<ActNode name="MoveVecRight">
+		<module name="CheckKey" state="Cnt" key="RIGHT">
+			<module name="SetDir" dir="RIGHT"/>
+			<module name="CheckCol" w ="24" speedX ="2">
+				<module name="CheckCol" w ="24" h ="-52" speedX ="2">
+					<module name="Move" x ="2"/>
+				</module>
+			</module>
+			<module name="CheckState" state="Idle">
+				<module name="SetAnime" state="Run"/>
+			</module>
+		</module>
+	</ActNode>
+	<ActNode name ="Fall">
+		<module name="CheckState" state="Idle" state2="Run">
+			<module name ="CheckCol" h="32" speedY="2">
+				<module name="SetFall" jump="0.2"/>
+			</module>
+		</module>
+		<module name="CheckState" state="Fall">
+			<module name="UpdateFall" jump="0.2" limit="8.0"/>
+		</module>
+	</ActNode>
+	<ActNode name ="Jump">
+		<module name="CheckState" state="Idle" state2="Run">
+			<module name="CheckKey" state ="Cnt" key="BTN1">
+				<module name="SetJump" jump="8.0"/>
+			</module>
+		</module>
+		<module name="CheckState" state="Jump">
+			<module name="UpdateJump" jump="-0.2" colY="-52"/>
+		</module>
+	</ActNode>
+
+		<ActNode name ="Hadouken">
+			<module name="CheckNonState" state="Hadouken" >
+				<module name="CheckState" state="Idle" state2="Run">
+					<module name="CheckCommand" cmd ="Hadouken">
+						<module name="SetHadouken"/>
+					</module>
+				</module>
+			</module>
+		
+			<module name="CheckState" state="Hadouken">
+				<module name="UpdateHadouken"/>
+					<module name="BornHadouken"/>
+			</module>
+		</ActNode>
+
+	<ActNode name ="SonicBoom">
+		<module name="CheckNonState" state="SonicBoom" >
+			<module name="CheckState" state="Idle" state2="Run">
+				<module name="CheckCommand" cmd ="SonicBoom">
+					<module name="SetSonicBoom"/>
+				</module>
+			</module>
+		</module>
+
+		<module name="CheckState" state="SonicBoom">
+			<module name="UpdateSonicBoom"/>
+			<module name="BornSonicBoom"/>
+		</module>
+	</ActNode>
+	
+	<ActNode name="Idle">
+		<module name="CheckNonState" state="Hadouken" state2="SonicBoom" state3="Fall" > 
+			<module name="CheckNonMove">
+				<module name="SetAnime" state="Idle"/>
+			</module>
+		</module>
+	</ActNode>
+</moduleList>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionList name = "Player" version="1.0">
+	<action name="Idle" source="./image/Idle.png" divSizeX="64" divSizeY="64" divCntX = "5" divCntY="1">
+		<anime loop="-1" encoding = "csv">
+0,10,0,0,64,64,
+1,10,0,0,64,64,
+2,10,0,0,64,64,
+3,10,0,0,64,64
+		</anime>
+	</action>
+	<action name="Run" source="./image/Run.png" divSizeX="64" divSizeY="64" divCntX = "6" divCntY="1">
+		<anime loop="-1" encoding = "csv">
+0,5,0,0,64,64,
+1,5,0,0,64,64,
+2,5,0,0,64,64,
+3,5,0,0,64,64,
+4,5,0,0,64,64,
+5,5,0,0,64,64
+		</anime>
+	</action>
+	<action name="Jump" source="./image/Jump.png" divSizeX="64" divSizeY="64" divCntX = "1" divCntY="1">
+		<anime loop="-1" encoding = "csv">
+0,10,0,0,64,64
+		</anime>
+	</action>
+	<action name="Fall" source="./image/Fall.png" divSizeX="64" divSizeY="64" divCntX = "1" divCntY="1">
+		<anime loop="-1" encoding = "csv">
+0,10,0,0,64,64
+		</anime>
+	</action>
+	<action name="Hadouken" source="./image/Hadouken.png" divSizeX="64" divSizeY="64" divCntX = "1" divCntY="1">
+		<anime loop="1" encoding = "csv">
+0,30,0,0,64,64
+		</anime>
+	</action>
+
+	<action name="SonicBoom" source="./image/Hadouken.png" divSizeX="64" divSizeY="64" divCntX = "1" divCntY="1">
+		<anime loop="1" encoding = "csv">
+0,30,0,0,64,64
+		</anime>
+	</action>
+</actionList>
