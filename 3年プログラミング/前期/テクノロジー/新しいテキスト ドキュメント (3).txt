@@ -1,0 +1,189 @@
+ゲームプログラマのためのコーディング技術
+	S-SimpleResoponsibility
+		モンスターがスコアラーしない
+	Open-Closed原則
+		→基底クラスの変更はしない
+		　インターフェースのみにする
+		　C++では純粋仮想関数のみにする
+
+事前条件と事後条件に付いて
+
+関数に対して
+事前条件というものを意識する→まず引数をassertチェックする
+
+float Divide(float a,float b)
+{
+    assert(b!=0.0f);//事前条件チェック
+    return a/b;
+}
+
+assertを活用する癖をつけておく。
+	事故現場を事故後すぐに特定するため。
+
+特にメモリ関係でやらかしてると、止まらずに壊すだけ壊した後に、
+強制終了とかがあり得るので、せめて、分かり切ってる条件に
+違反してるところをすぐに捕捉できるようにしよう。
+
+事後条件はこの関数を実行した後にこうなってなければいけない
+そういうのを事後条件といいます
+
+//事後条件は、メンバ変数のv_.size() == v.size();
+void Copy(const vector<int>& v)
+{
+	v_.clear();
+   	for(auto& e:v)
+	{
+		v_.push_back(e);
+	}
+	assert(v_.size() == v.size());
+}
+
+プログラムがある程度できている(一応ゲームができている)
+その時に、関数を変えようとしたくなる
+ただし、影響の大きさがわからない。
+
+なので、事後条件をきっちり規定しておいて、assertしておく
+事後条件を違反していたら、そこでクラッシュして、確認できる。
+
+この事前条件事後条件は本来は、Unittest(単体テスト)と呼ばれる仕組みを
+利用したときに考慮することになる
+
+不変条件
+ループ不変条件
+
+int chkvalue = ???
+for(～)
+{}
+assert(chkvalue == ???);
+
+void Update()
+{
+	for(auto& object: objects)
+	{
+	 object->Update();
+	}
+}
+
+void Draw()
+{
+	int totalvalue = 敵の総体力
+	for(auto& object: objects)
+	{
+	 object->Draw();
+	}
+	assert(totalvalue == 敵の総体力);
+}
+
+Vector3& Normalized(const Vector3& v)
+{
+	
+}
+
+
+分厚いし買わなくていいもの
+CleanCode
+CleanArchitecture
+
+class Monster()
+{
+virtual void Attack() = 0;
+virtual void Move() = 0;
+virtual void Fly() = 0;//
+};
+
+class Slime():public Monster
+{
+
+};
+
+class Bird():public Monster
+{
+void Fly();
+}
+
+#pragma once//一回しかインクルードしないよ
+class Slime;
+class Player()
+{
+	Slime& slime;
+};
+
+class Player;
+class Slime ()
+{
+	Player& player;
+};
+
+基本的にヘッダからヘッダはインクルードしないようにしましょう。
+プロトタイプ宣言は前方参照を駆使して、最小限のヘッダインクルードにしましょう。
+(cppからのインクルードはok)
+
+
+プリプロセッサについて
+頭に#ついてるやつ、これは全部プリプロセッサ
+#include
+	そこに書かれているファイルをその#includeの位置に「コピーする」
+
+main.cpp
+#include "copy.h"
+↓
+main.cpp
+void Copy()
+～
+
+int main();
+になる
+
+#define
+	定数のdefine
+	　#define WIDTH 640;
+	マクロのdefine
+	  #define MAX(a,b) a > b?a:b;  
+	ただのdefine
+	　#define DEBUG
+	　→"DEBUG"という名前を「定義した」と表している
+	  何に使うのか？後述する#ifdef～#else～#endif
+	　で使用される。
+#ifdef defineでその名前が定義されてたら、以下のコードを有効にする
+	逆に言うと定義されていなかったら、これ以下のコードは無効になる。
+#ifndef defineでその名前が定義されていなかったらそれ以下のコードを有効にする
+#endif は、#ifdef#ifndefを閉じるもの
+
+
+昔のインクルードガードはこうしてた。例えば#Player.h
+#ifndef PLAYER_H_INCLUDED //定義されていなかったら通る
+#define PLAYER_H_INCLUDED //定義されていなかったので定義された(上のコードが通らなくなる)
+class Player
+{
+}
+#endif
+
+#pragma
+    pragmaの後に続く言葉で意味が全然変わってくる
+　  
+　　#pragma once そのファイルを1個の翻訳単位を一度しか読み込まない
+    　(翻訳単位とは、コンパイル対象のcppのこと)
+　　
+　　#pragma comment(lib,"ライブラリファイル名.lib")
+　　　指定のライブライリをリンクする
+　
+  　#pragma pack(n)
+　　　メモリ境界を一時的nにそろえる
+　　　#pragma pack(1)にすると、1バイト境界になる。
+　　　(デフォルトは4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

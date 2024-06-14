@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config date="1695705216063" transient="false">
+	<site updateable="true" url="platform:/base/" enabled="true" policy="USER-EXCLUDE">
+		<feature id="org.eclipse.ecf.core.feature" version="1.6.1.v20230507-1923" url="features/org.eclipse.ecf.core.feature_1.6.1.v20230507-1923/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.ssl.feature" version="1.1.401.v20230422-0242" url="features/org.eclipse.ecf.filetransfer.ssl.feature_1.1.401.v20230422-0242/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.app.local.feature" version="23.2.1.202309260508" url="features/org.jkiss.dbeaver.app.local.feature_23.2.1.202309260508/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.ce.feature" version="23.2.1.202309260508" url="features/org.jkiss.dbeaver.ce.feature_23.2.1.202309260508/" plugin-identifier="org.jkiss.dbeaver.ui.app.standalone">
+		</feature>
+		<feature id="org.jkiss.dbeaver.ui.extra.feature" version="23.2.1.202309260508" url="features/org.jkiss.dbeaver.ui.extra.feature_23.2.1.202309260508/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient5.feature" version="1.1.701.v20230423-0417" url="features/org.eclipse.ecf.filetransfer.httpclient5.feature_1.1.701.v20230423-0417/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.core.feature" version="1.6.1800.v20230509-1332" url="features/org.eclipse.equinox.p2.core.feature_1.6.1800.v20230509-1332/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.runtime.feature" version="23.2.1.202309260508" url="features/org.jkiss.dbeaver.runtime.feature_23.2.1.202309260508/" plugin-identifier="org.jkiss.dbeaver.model">
+		</feature>
+		<feature id="org.jkiss.dbeaver.db.ui.feature" version="1.0.106.202309260508" url="features/org.jkiss.dbeaver.db.ui.feature_1.0.106.202309260508/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.extras.feature" version="1.4.2000.v20230509-1332" url="features/org.eclipse.equinox.p2.extras.feature_1.4.2000.v20230509-1332/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.app.base.feature" version="23.2.1.202309260508" url="features/org.jkiss.dbeaver.app.base.feature_23.2.1.202309260508/" plugin-identifier="org.jkiss.dbeaver.ui.app.standalone">
+		</feature>
+		<feature id="org.jkiss.dbeaver.db.feature" version="1.0.106.202309260508" url="features/org.jkiss.dbeaver.db.feature_1.0.106.202309260508/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.ui.feature" version="23.2.1.202309260508" url="features/org.jkiss.dbeaver.ui.feature_23.2.1.202309260508/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.discovery.feature" version="1.3.0.v20230322-1009" url="features/org.eclipse.equinox.p2.discovery.feature_1.3.0.v20230322-1009/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.standalone.feature" version="23.2.1.202309260508" url="features/org.jkiss.dbeaver.standalone.feature_23.2.1.202309260508/" plugin-identifier="org.jkiss.dbeaver.ui.app.standalone">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.feature" version="3.14.1800.v20230422-0242" url="features/org.eclipse.ecf.filetransfer.feature_3.14.1800.v20230422-0242/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.rcp.feature" version="2.1.190.202309260508" url="features/org.jkiss.dbeaver.rcp.feature_2.1.190.202309260508/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.ssl.feature" version="1.1.501.v20230507-1921" url="features/org.eclipse.ecf.core.ssl.feature_1.1.501.v20230507-1921/">
+		</feature>
+	</site>
+</config>

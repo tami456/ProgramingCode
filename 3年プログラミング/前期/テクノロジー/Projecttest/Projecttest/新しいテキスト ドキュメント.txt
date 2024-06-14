@@ -1,0 +1,1 @@
+player.xmlのsonicBoomをhadoukenの方にどうやってか動かすと出る

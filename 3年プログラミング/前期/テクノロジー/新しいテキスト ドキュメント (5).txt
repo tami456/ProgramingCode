@@ -1,0 +1,45 @@
+ゲーム業界でよく名前を聞くスクリプト言語
+①python(高機能でみんな知っている)
+②Lua(小さくて軽い)←実行時スクリプト
+	小さいだけに、言語使用の把握が容易。中身が分かりやすい
+③JavaScript(TypeScript)←ブラウザ
+	await/async(非同期がついてまわる)
+	文字列系
+	送受信系
+
+ブラウザ系やるなら、JavaScriptしかないのか
+	C++→WebAssembly:emscripten
+	Rust→WebAssembly
+
+サーバー側だと、PHP,Python,Ruby
+
+Signed Distance Function
+符号付き、距離、関数
+(マイナスがある、距離を返す関数)
+
+形の外にあるか、形に触れてるか、形の内部にあるのかを返す関数。
+
+float sdSphere(vec3 p,float s)
+{
+   return length(p) - s; 
+}
+
+微分
+lim{(f+h)-f(x)}/h
+
+基礎解析学
+(三角関数、指数対数、微分積分)
+線形代数
+(ベクトル、行列)
+確率統計
+(乱数、平均、分散)
+
+
+
+
+
+
+
+
+
+

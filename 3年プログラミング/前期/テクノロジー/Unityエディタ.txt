@@ -1,0 +1,181 @@
+Unityをツールとして利用する
+Editorというフォルダーを作ってスクリプトを入れる
+Monobehavior消す
+using UnityEditor
+//ファイル関連がいじれる
+using System.IO;
+
+public class クラス名
+{
+	enum ObjectType
+	{
+		Mesh,
+		Camera,
+		Light.
+	};
+	
+	static private void WriteVector3(BinaryWriter bw,Vector3 vec)
+	{
+		bw.Write(vec.x);
+		bw.Write(vec.y);
+		bw.Write(vec.z);
+	}
+	
+	[MenuItem("テスト/データ出力")]
+	static public void Test()
+	{
+		//Unityのシーン上で置いたオブジェクトの出力
+		//今、選択しているところをルートとして、座標を出力する
+		var rootGameObject = Selection.activeGameObject;
+		if(rootGameObject)
+		{
+			var path = EditorUtility.SaveFilePanel("保存",".","Data.pos","pos");
+			if(path == "")
+			{
+				return;
+			}
+			var stream = File.Create(path);
+			//ファイルに書き込む
+			var bw = new BinaryWriter(stream);
+			char[] signature = new char[4];
+			signature = "POS_".ToCharArray();
+			float version = 0.01f;
+			bw.Write(signature);
+			bw.Write(version);
+			
+			var childNum = rootGameObject.transform.childCount;
+			bw.Writer(int childNum);
+			for(int i = 0;i < childNum;i++)
+			{
+				var child = rootGameObject.transform.GetChild(i);
+				
+				var camera = child.GetComponent<Camera>();
+				var light = child.GetComponent<Light>();
+				
+				ObjectType type = ObjectType.Mesh;
+				if(camera != null)
+				{
+					type = ObjectType.Camera;
+				}
+				else
+				{
+					type = ObjectType.Light;
+				}
+				
+				var name = child.name;
+				//1バイトで出力する
+				byte nameLen =(byte) name.Length;
+				bw.Write((byte)type);
+				bw.Write(nameLen);
+				bw.Write(name.ToCharArray());
+				WriteVector3(bw,child.position);
+				WriteVector3(bw,child.rotation.eulerAngles);
+				if(camera != null)
+				{
+					bw.Write(camera.fieldOfView);//画角
+					bw.Write(camera.nearClipPlane);//ニア
+					bw.Write(camera.farClipPlane);//ファー
+				}
+			}
+			
+			stream.Close();
+			EditorUtility.DisplayDialog("配置データが出力されました","データ出力成功","閉じる");
+			
+		}
+		else
+		{
+			EditorUtility.DisplayDialog("ルートがありません","エラー","閉じる");
+		}
+	}
+}
+
+Tabにテストが追加される
+SaveFilePanel = 保存する場所を選べるだけ(保存はされない)
+File.Create(path) = 選んだ場所にファイルを作成する
+new BinaryWriter(stream) = 作成したファイルに書き込む
+
+適当にオブジェクトを置く→空オブジェクトにシーンのオブジェクトを全部入れて選択して
+データ出力を押すと保存できる
+
+ここからVS
+
+#include<DxLib.h>
+#include<string>
+#include<vector>
+
+enum class ObjectType
+{
+	Mesh,
+	Camera,
+	Light,
+};
+
+int WINAPI Winmain(HINSTANCE,HINSTANCE,LPSTR,int)
+{
+	ChangeWindowMode(true);
+	DxLib_Init();
+	SetDrawScreen(DX_SCREEN_BACK);
+	
+	auto file = DxLib::FileRead_open(L"./Data.pos");
+	struct Vector3
+	{
+		float x,y,z;
+	};
+	
+	struct Object
+	{
+		ObjectType objType;
+		std::string name;
+		Vector3 pos;
+		Vector3 rot;
+	};
+	
+	std::vector<Object> data;
+	char sig[4];
+	float version;
+	int dataNum;
+	
+	DxLib::FileRead_read(&sig,size_of(sig),file);
+	DxLib::FileRead_read(&version,size_of(version),file);
+	DxLib::FileRead_read(&dataNum,size_of(dataNum),file);
+	
+	data.resize(dataNum);
+	for(int i = 0;i < dataNum;++i)
+	{
+		auto& obj = data[i];
+		byte btype;
+		DxLib::FileRead_read(&btype,size_of(btype),file);
+		obj.objType = (ObjectType)btype;
+		byte strLen
+		DxLib::FileRead_read(&sig,size_of(strLen),file);
+		data[i].name.resize(strLen);
+		DxLib::FileRead_read(&obj.name[0],strLen,file);
+		DxLib::FileRead_read(&obj.pos,size_of(obj.pos),file);
+		DxLib::FileRead_read(&obj.rot,size_of(obj.rot),file);
+		
+		if(obj.objType == ObjctType.Camera)
+		{
+			
+		}
+		
+	}
+	
+	while(ProcessMassage() != -1)
+	{
+		ClearDrawScreen();
+		int y = 10;
+		for(auto& d:data)
+		{
+			DrawFormatString(10,y,0xffffff,L"%s.pos = 
+			{%2.2f,%2.2f,%2.2f},
+			rot = {%2.2f,%2.2f,%2.2f}".
+			d.name.c_str(),d.pos.x,d.pos.y,d.pos.z,
+			d.rot.x,d.rot.y,d.rot.z);
+			y += 16;
+		}
+		
+		ScreenFlip();
+	}
+	DxLib_End();
+	
+}

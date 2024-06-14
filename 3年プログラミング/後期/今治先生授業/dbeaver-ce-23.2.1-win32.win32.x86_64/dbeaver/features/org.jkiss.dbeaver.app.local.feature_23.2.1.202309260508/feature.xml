@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Base for standalone applications. Includes minimum set of plugins -->
+<feature
+        id="org.jkiss.dbeaver.app.local.feature"
+        label="%featureName"
+        version="23.2.1.202309260508"
+        provider-name="%providerName">
+
+    <!-- Quick search. Includes minimized ant bundle. No included in non-local as it uses local FS. -->
+    <plugin id="org.eclipse.text.quicksearch" download-size="97" install-size="187" version="1.2.100.v20230427-1010"/>
+    <plugin id="org.jkiss.dbeaver.ui.statistics" download-size="30" install-size="51" version="1.0.11.202309260508" unpack="false"/>
+
+</feature>

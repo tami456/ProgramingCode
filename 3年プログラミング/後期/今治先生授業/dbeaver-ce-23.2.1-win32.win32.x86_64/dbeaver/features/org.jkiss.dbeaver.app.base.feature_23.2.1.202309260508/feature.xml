@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Base for standalone applications. Includes minimum set of plugins -->
+<feature
+        id="org.jkiss.dbeaver.app.base.feature"
+        label="%featureName"
+        version="23.2.1.202309260508"
+        provider-name="%providerName"
+        plugin="org.jkiss.dbeaver.ui.app.standalone">
+
+    <description>
+        %description
+    </description>
+
+    <copyright>
+        %copyright
+    </copyright>
+
+    <license url="%licenseURL">
+        %license
+    </license>
+
+    <url>
+        <update label="DBeaver Universal Database Manager" url="https://dbeaver.io/"/>
+    </url>
+
+    <includes id="org.jkiss.dbeaver.rcp.feature" version="2.1.190.202309260508"/>
+
+    <includes id="org.jkiss.dbeaver.runtime.feature" version="23.2.1.202309260508"/>
+    <includes id="org.jkiss.dbeaver.ui.feature" version="23.2.1.202309260508"/>
+    <includes id="org.jkiss.dbeaver.db.feature" version="1.0.106.202309260508"/>
+    <includes id="org.jkiss.dbeaver.db.ui.feature" version="1.0.106.202309260508"/>
+
+    <!-- Logging -->
+
+    <plugin id="org.jkiss.dbeaver.slf4j" download-size="12" install-size="20" version="2.0.85.202309260508" unpack="false"/>
+
+    <!-- Additional plugins for standalone version -->
+
+    <plugin id="org.jkiss.dbeaver.ext.ui.tipoftheday" download-size="35" install-size="76" version="1.0.121.202309260508" unpack="false"/>
+
+    <plugin id="org.eclipse.ui.ide.application" download-size="129" install-size="234" version="1.5.0.v20230526-1051" unpack="false"/>
+    <plugin id="org.apache.commons.cli" download-size="56" install-size="121" version="1.5.0" unpack="false"/>
+
+</feature>

@@ -1,0 +1,38 @@
+サーバーの立てられ方
+ベアメタル
+	物理的にサーバーを用意する
+	目に見える場所にあるので自分でどうにかできる
+	
+クラウドサービス
+	IaaS(借りたら責任は借りたものにある)
+		Infrastructure as a Service
+			サービスとしてインフラ(コンピュータに類するもの)を提供する
+		
+	PaaS(借りても責任は会社にある)
+		Platform as a Service
+			サービスとしてプラットフォームを提供する
+			
+	SaaS
+		Software as a Service
+			サービスとしてソフトウェアを提供する
+			
+マイクロサービス
+	一つのアプリケーションをネットワークで結合して、サービスを実現する
+	コンテナ管理ツール
+		Docker
+		Kubernetes
+		
+
+入れるもの
+VisualStudioCode
+Windows Terminal
+WSL2(Windows subsystem for linux)Ubunto
+Docker Desktop
+DBeaver
+Git
+
+apc-teacher
+AsojukuT
+
+
+

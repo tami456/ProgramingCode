@@ -1,0 +1,19 @@
+バージョン管理ツール
+・Git
+・TortoiseSVN SubVersion
+・Bazaar
+・Mercurial
+・AlienBrain
+
+GitHubはGitのリポジトリサービスのひとつ(無料)
+
+ほかにもGitLabとか
+
+.gitignore
+ignore「無視する」という意味で。
+この中の定義されているフォルダやファイルの種類は
+無視される
+
+就活のエントリーシートに等にGitHubのアドレスを
+書かされるような会社があるぐらいなので、
+とにかく作ってあげておきましょう
